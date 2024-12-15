@@ -73,9 +73,10 @@ if __name__ == "__main__":
             form_action = soup.find("form", {"name": "email-change-form"})
             if form_action:
                 api_path = form_action["action"]
+                print("API_Path found",api_path)
+                
                 api_url = base_url.strip("/") + api_path
                 print(f"API URL: {api_url}")
-
                 api_url = base_url.strip("/") + api_path
                 api_url_with_user = f"{api_url}/{user}"
                 print(api_url_with_user)
@@ -90,8 +91,7 @@ if __name__ == "__main__":
                 print(res.status_code)
                 print(cookies)
                 if res.status_code == 200:
-                    print("helloooo")
-                   
+                                   
                     print("email changed")
                 else:
                     print("email not found", res.reason,res.text)
