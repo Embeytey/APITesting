@@ -7,9 +7,9 @@ from rich.prompt import Prompt
 console = Console()
 
 # Define constants
-BASE_URL = "https://0a6600bd0471360e81262fe3000800d7.web-security-academy.net/"
+BASE_URL = "https://0a13002603bb085281a2a84a00a5007d.web-security-academy.net/"
 HEADERS = {
-    "Host": "0a6600bd0471360e81262fe3000800d7.web-security-academy.net",
+    "Host": "0a13002603bb085281a2a84a00a5007d.web-security-academy.net",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
     "Referer": BASE_URL,
     "Connection": "keep-alive",
